@@ -1,0 +1,32 @@
+---------------------------Enlace del Proyecto del que se a basado------------------
+https://iot-lab.github.io/docs/boards/iot-lab-m3/
+
+----------------------Ingresar y Flashera--------------------------------------------
+
+ssh romeropo@saclay.iot-lab.info
+git clone https://github.com/iot-lab/openlab.git
+cd openlab
+mkdir build.m3
+cd build.m3
+cmake .. -DPLATFORM=iotlab-m3
+make embers_sensors
+---------------------------------Obtener directorio-----------------------------
+pwd
+
+-----------------------------------Obtner Firmware---------------------------------
+scp romeropo@saclay.iot-lab.info:/senslab/users/romeropo/openlab/build.m3/bin/embers_sensors.elf /home/marco/Descargas/Lab_Equipo9_1.elf
+
+----------------------------------------------TRAS OBTENER EL FIRMWARE FLASHEAR EN FIT IOT LAB------ NODO M3
+
+--------------------COMANDOS MANEJO DE SENSORES--------------------------
+Command              Description
+--------------------------------
+help                 Imprime esta ayuda
+sensors_on           [retraso:segundos] Iniciar la medición de los sensores. Predeterminado 5s, mínimo 1s
+sensors_off          Detener la medida de los sensores
+parking_on           [retraso promedio: segundos] Inicie el simulador de estacionamiento. Predeterminado 30 s, mínimo 1 s
+parking_off          Detener simulador de estacionamiento
+traffic              [recuento de vehículos] Enviar evento de tráfico
+pollution            [o2,particles,co,so2,no2] Enviar evento de contaminación
+random_on            Agregue un retraso aleatorio antes de comenzar las medidas, por defecto ON
+random_off           Sin demora aleatoria antes de iniciar las medidas.
